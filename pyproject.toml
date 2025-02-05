@@ -39,7 +39,7 @@ show_error_codes = true
 show_error_context = true
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.10,<4.0.0"
 pydantic = "^2.0.2"
 attrs = "^23.1.0"
 pendulum = "^2.1.2"
