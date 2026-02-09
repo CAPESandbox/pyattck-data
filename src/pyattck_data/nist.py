@@ -67,14 +67,14 @@ class GeneratedNistControlMap:
             return_dict = {}
             for key,val in self.data.items():
                 try:
-                    Id().validate(key)
+                    Id(key)
                 except Exception as e:
                     raise e
                 return_dict[key] = []
                 if isinstance(val, list):
                     for item in val:
                         try:
-                            Id().validate(item)
+                            Id(item)
                         except Exception as e:
                             raise e
                     return_dict[key] = val

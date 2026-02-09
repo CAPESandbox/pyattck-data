@@ -3,7 +3,8 @@ import json
 from pyattck_data.generated import GeneratedData
 
 
-GENERATED_ATTCK_JSON = json.load(open("tests/resources/generated_attck_data.json"))
+with open("tests/resources/generated_attck_data.json") as f:
+    GENERATED_ATTCK_JSON = json.load(f)
 
 SAMPLE_DATA = {
     "country": "china",

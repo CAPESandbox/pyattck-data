@@ -1,5 +1,5 @@
 from datetime import datetime
-from attr import validators
+from attrs import validators
 from .types import (
     Id
 )

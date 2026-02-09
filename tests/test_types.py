@@ -11,53 +11,59 @@ from pyattck_data.types import (
 )
 
 
+from pydantic import TypeAdapter
+
 def test_id_type():
+    ta = TypeAdapter(Id)
     for example in PATTERNS["types"]["examples"]:
-        assert Id().validate(example)
+        assert ta.validate_python(example)
 
     with pytest.raises(ValueError) as excinfo:
-        Id().validate('asdefasdf')
+        ta.validate_python('asdefasdf')
     assert "Invalid Id attribute" in str(excinfo.value)
 
     with pytest.raises(ValueError) as excinfo:
-        Id().validate('asdefasdf-')
+        ta.validate_python('asdefasdf-')
     assert "Invalid Id attribute" in str(excinfo.value)
 
 
 def test_semversion_type():
+    ta = TypeAdapter(SemVersion)
     for example in PATTERNS["semversion"]["examples"]:
-        assert SemVersion().validate(example)
+        assert ta.validate_python(example)
 
     with pytest.raises(ValueError) as excinfo:
-        SemVersion().validate('asdefasdf')
+        ta.validate_python('asdefasdf')
     assert "Invalid SemVersion format" in str(excinfo.value)
 
     with pytest.raises(ValueError) as excinfo:
-        SemVersion().validate('0000')
+        ta.validate_python('0000')
     assert "Invalid SemVersion format" in str(excinfo.value)
 
 
 def test_mitre_domain_type():
+    ta = TypeAdapter(MitreDomain)
     for example in PATTERNS["domains"]["examples"]:
-        assert MitreDomain().validate(example)
+        assert ta.validate_python(example)
 
     with pytest.raises(ValueError) as excinfo:
-        MitreDomain().validate('asdefasdf')
+        ta.validate_python('asdefasdf')
     assert "Invalid MitreDomain attribute" in str(excinfo.value)
 
     with pytest.raises(ValueError) as excinfo:
-        MitreDomain().validate('0000')
+        ta.validate_python('0000')
     assert "Invalid MitreDomain attribute" in str(excinfo.value)
 
 
 def test_mitre_platform_type():
+    ta = TypeAdapter(MitrePlatform)
     for example in PATTERNS["platforms"]["examples"]:
-        assert MitrePlatform().validate(example)
+        assert ta.validate_python(example)
 
     with pytest.raises(ValueError) as excinfo:
-        MitrePlatform().validate('android')
+        ta.validate_python('android')
     assert "Invalid MitrePlatform attribute" in str(excinfo.value)
 
     with pytest.raises(ValueError) as excinfo:
-        MitrePlatform().validate('relationship')
+        ta.validate_python('relationship')
     assert "Invalid MitrePlatform attribute" in str(excinfo.value)

@@ -1,6 +1,19 @@
 # Changelog
 
-## [2.6.3](https://github.com/swimlane/pyattck-data/compare/2.6.2...2.6.3) (2023-05-11)
+## [2.6.4](https://github.com/swimlane/pyattck-data/compare/2.6.3...2.6.4) (2026-02-09)
+
+
+### Features
+
+* Added support for attrs v25.4.0
+* Added support for pydantic v2.12.5
+* Added support for importlib-metadata v8.7.1
+* Modernized Pydantic custom types for V2 compatibility
+
+### Bug Fixes
+
+* Fixed ResourceWarning for unclosed file in tests
+* Fixed missing validate method in Id type for NIST data mapping
 
 
 ### Bug Fixes

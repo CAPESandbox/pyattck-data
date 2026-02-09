@@ -7,7 +7,7 @@ from typing import (
 from pydantic import (
     HttpUrl
 )
-from attr import (
+from attrs import (
     define,
     field,
     validators
